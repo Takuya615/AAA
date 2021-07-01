@@ -12,6 +12,8 @@
 		9ADAC46C70FD0F879580D7BE /* Pods_aaa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7760D3AD8D4DE652161CC7F1 /* Pods_aaa.framework */; };
 		CE132AA82682140B00A21959 /* AVFoundationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE132AA72682140B00A21959 /* AVFoundationVM.swift */; };
 		CE279BD626817CAD005E5E04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE279BD526817CAD005E5E04 /* GoogleService-Info.plist */; };
+		CE9E7334268AC2960032841E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7333268AC2960032841E /* PlayerView.swift */; };
+		CE9E7336268C08C00032841E /* PoseDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7335268C08C00032841E /* PoseDetection.swift */; };
 		CEC5BA69267AE10500C7CB1F /* aaaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5BA68267AE10500C7CB1F /* aaaApp.swift */; };
 		CEC5BA6B267AE10500C7CB1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5BA6A267AE10500C7CB1F /* ContentView.swift */; };
 		CEC5BA6D267AE10A00C7CB1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC5BA6C267AE10A00C7CB1F /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		CE1329F72681824400A21959 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE132AA72682140B00A21959 /* AVFoundationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationVM.swift; sourceTree = "<group>"; };
 		CE279BD526817CAD005E5E04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE9E7333268AC2960032841E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		CE9E7335268C08C00032841E /* PoseDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetection.swift; sourceTree = "<group>"; };
 		CEC5BA65267AE10500C7CB1F /* aaa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aaa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5BA68267AE10500C7CB1F /* aaaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aaaApp.swift; sourceTree = "<group>"; };
 		CEC5BA6A267AE10500C7CB1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				CEC8A084267B819300D36718 /* LoginView.swift */,
 				CEC8A086267B856000D36718 /* VideoUIView.swift */,
 				CEC5BA6A267AE10500C7CB1F /* ContentView.swift */,
+				CE9E7333268AC2960032841E /* PlayerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				CE279BD526817CAD005E5E04 /* GoogleService-Info.plist */,
 				CEC5BA6E267AE10A00C7CB1F /* Preview Content */,
 				CE132AA72682140B00A21959 /* AVFoundationVM.swift */,
+				CE9E7335268C08C00032841E /* PoseDetection.swift */,
 			);
 			path = aaa;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 				CEC5BA62267AE10500C7CB1F /* Frameworks */,
 				CEC5BA63267AE10500C7CB1F /* Resources */,
 				A7835EEC53F8FA754D0C7CDD /* [CP] Embed Pods Frameworks */,
+				E4504865D9F2FCB459488399 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +256,7 @@
 				CEC5BA7E267AE10A00C7CB1F /* Frameworks */,
 				CEC5BA7F267AE10A00C7CB1F /* Resources */,
 				DE5CD12D83E7A207DF9FB9EA /* [CP] Embed Pods Frameworks */,
+				6FD85B628D1037AEEA660CE6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -330,6 +338,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6FD85B628D1037AEEA660CE6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aaa-aaaUITests/Pods-aaa-aaaUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aaa-aaaUITests/Pods-aaa-aaaUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aaa-aaaUITests/Pods-aaa-aaaUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7DD1628963BA20E630A7DDE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +455,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aaa-aaaUITests/Pods-aaa-aaaUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E4504865D9F2FCB459488399 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aaa/Pods-aaa-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aaa/Pods-aaa-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aaa/Pods-aaa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -439,7 +481,9 @@
 			files = (
 				CEC8A087267B856000D36718 /* VideoUIView.swift in Sources */,
 				CEC8A085267B819300D36718 /* LoginView.swift in Sources */,
+				CE9E7334268AC2960032841E /* PlayerView.swift in Sources */,
 				CEC5BA6B267AE10500C7CB1F /* ContentView.swift in Sources */,
+				CE9E7336268C08C00032841E /* PoseDetection.swift in Sources */,
 				CEC5BA69267AE10500C7CB1F /* aaaApp.swift in Sources */,
 				CE132AA82682140B00A21959 /* AVFoundationVM.swift in Sources */,
 				CEC8A08C267CD97900D36718 /* RootView.swift in Sources */,

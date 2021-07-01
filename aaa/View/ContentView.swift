@@ -30,35 +30,9 @@ struct ContentView: View {
                 
                 CALayerView(caLayer: avFoundationVM.previewLayer)
             }
-            
-            /*
-            
-            //Spacer()
-
-            ZStack(alignment: .bottom) {
-                
-                CALayerView(caLayer: avFoundationVM.previewLayer)
-
-                Button(action: {
-                    self.avFoundationVM.takePhoto()
-                }) {
-                    Image(systemName: "video")
-                    .renderingMode(.original)
-                    .resizable()
-                    .frame(width: 80, height: 80, alignment: .center)
-                }
-                .padding(.bottom, 100.0)
-            }.onAppear {
-                self.avFoundationVM.startSession()
-            }.onDisappear {
-                self.avFoundationVM.endSession()
-            }*/
-
-            
-            //CALayerView(caLayer: avFoundationVM.previewLayer)
-            //VideoUIView(presenter: SimpleVideoCapturePresenter())
-                //Text("ほんとはカメラが表示されるようにしたい")
-            }else{
+        }else if self.appState.isVideoPlayer{
+            PlayerView()
+        }else {
                 ZStack{
                     fragment
                     fab
@@ -74,10 +48,10 @@ struct ContentView: View {
                 Text("ホーム")
               }
             SecondView()
-            .tabItem {
-                Image(systemName: "applelogo")
-                Text("動画リスト")
-              }
+                .tabItem {
+                    Image(systemName: "applelogo")
+                    Text("動画リスト")
+                }
             ThirdView()
              .tabItem {
                  Image(systemName: "pencil")
@@ -92,6 +66,9 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Spacer()
+                Button(action: {DataCounter().scoreCounter()}, label: {
+                    Text("Button")
+                })
                 Button(action:{
                     self.appState.isVideoMode = true
                 }, label: {
@@ -118,11 +95,34 @@ struct ContentView: View {
 struct FirstView: View {
     @EnvironmentObject var appState: AppState
     @State var isOpenSideMenu = false
+    @State var continuedDay =
+        UserDefaults.standard.integer(forKey: DataCounter().continuedDay)//値の読み取り
+    @State var continuedWeek =
+        UserDefaults.standard.integer(forKey: DataCounter().retry)//値の読み取り
+    
     var body: some View {
         NavigationView{
-            List {ForEach(0..<5) { (index) in
-                    Text("Row \(index)")
-                 }
+            HStack{
+                
+                VStack{
+                    Text("リトライ数")
+                        .font(.system(size: 20, weight: .black, design: .default))
+                        .foregroundColor(.blue)
+                    
+                    Text(String(continuedWeek))
+                        .font(.system(size: 100, weight: .black, design: .default))
+                        .frame(width: 130, height: 200, alignment: .center)
+                        .foregroundColor(.blue)
+                }
+                VStack{
+                    Text("継続日数")
+                        .font(.system(size: 20, weight: .black, design: .default))
+                        .foregroundColor(.blue)
+                    Text(String(continuedDay))
+                        .font(.system(size: 100, weight: .black, design: .default))
+                        .frame(width: 130, height: 200, alignment: .center)
+                        .foregroundColor(.blue)
+                }
             }
             .navigationTitle("ホーム")
             .navigationBarTitleDisplayMode(.inline)
@@ -160,6 +160,7 @@ struct FirstView: View {
 }
 
 struct SecondView: View{
+    @EnvironmentObject var appState: AppState
     struct Videos: Identifiable {
         var id = UUID()     // ユニークなIDを自動で設定¥
         var date: String
@@ -173,7 +174,11 @@ struct SecondView: View{
                 ForEach(videos) {video in
                     Text(video.date)
                         .contentShape(RoundedRectangle(cornerRadius: 5))
-                        .onTapGesture {print("タップされました\(video.date)")}
+                        .onTapGesture {
+                            print("タップされました\(video.date)")
+                            self.appState.playUrl = video.url
+                            self.appState.isVideoPlayer = true
+                        }
                 }.onDelete(perform: delete)
             }
             .onAppear(perform: VideoList)//リストの更新をここでできる
@@ -235,6 +240,8 @@ struct SecondView: View{
     
 }
     
+
+
 struct ThirdView: View {
     var body: some View {
         NavigationView{

@@ -86,6 +86,22 @@ class AVFoundationVM: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Ob
             if let image = getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async {
                     self.image = image
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    print("ポーズ　ディテクしょん")
+                    PoseDetection().pose(image: image)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 }
             }
         }
